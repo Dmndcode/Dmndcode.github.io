@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Explicações do Exercício em Tópicos Modernos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .box {
+            background-color: #1c262b;
+            border: 1px solid #ccc;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exercicio: </h1>
+    <div>
+        <p>
+            Escreva um programa que solicite continuamente ao usuário que digite um número ou "ok" para sair. Calcule a
+            soma de todos os números previamente inseridos e exiba o resultado no console.
+        </p>
+    </div>
+
+    <h2>Variáveis</h2>
+    <ul>
+        <li>A variável <code>sum</code> armazena a soma dos números inseridos.</li>
+        <li>A variável <code>multiply</code> armazena a multiplicação dos números.</li>
+        <li>A variável <code>divide</code> armazena o resultado da divisão.</li>
+    </ul>
+
+    <h2>Entrada de Dados</h2>
+    <ul>
+        <li>O programa utiliza <code>Console.ReadLine()</code> para receber a entrada do usuário.</li>
+        <li>O valor inserido pelo usuário é armazenado na variável <code>input</code> como uma string.</li>
+    </ul>
+
+    <h2>Estrutura de Repetição (while loop)</h2>
+    <ul>
+        <li>O programa utiliza um loop <code>while</code> para permitir que o usuário insira vários números ou digite
+            "ok" para sair.</li>
+        <li>O loop se repete até que a condição <code>while (true)</code> seja falsa ou até que o comando
+            <code>break</code> seja executado.
+        </li>
+    </ul>
+
+    <h2>Conversão de String para Inteiro (int.TryParse())</h2>
+    <ul>
+        <li>O programa utiliza <code>int.TryParse(input, out number)</code> para converter a string <code>input</code>
+            em um número inteiro.</li>
+        <li>A função <code>int.TryParse()</code> tenta converter a string em um número inteiro e retorna true se for
+            bem-sucedida.</li>
+        <li>Se a conversão falhar, retorna false.</li>
+    </ul>
+
+    <h2>Condição IF</h2>
+    <ul>
+        <li>O programa utiliza a estrutura de controle <code>if</code> para realizar diferentes ações com base nas
+            condições.</li>
+        <li>Verifica-se se a entrada é igual a "ok" para sair do loop.</li>
+        <li>Em seguida, verifica-se se o número inserido é diferente de zero antes de realizar os cálculos.</li>
+        <li>Se a condição for atendida, a soma e a multiplicação são atualizadas com o valor do número inserido.</li>
+    </ul>
+
+    <h2>Divisão com Precisão Decimal</h2>
+    <ul>
+        <li>Para realizar a divisão com precisão decimal, o programa converte a variável <code>multiply</code> para o
+            tipo decimal.</li>
+        <li>Em seguida, realiza a divisão pelo valor da variável <code>sum</code>.</li>
+        <li>O resultado é armazenado na variável <code>divide</code> como <code>(decimal)multiply / sum</code>.</li>
+    </ul>
+
+    <h2>Saída de Dados (Console.WriteLine())</h2>
+    <ul>
+        <li>O programa utiliza <code>Console.WriteLine()</code> para exibir os resultados parciais e finais dos
+            cálculos.</li>
+        <li>Os resultados da soma, multiplicação e divisão são exibidos no console.</li>
+    </ul>
+    <div class="box">
+        <pre><code>
+    using System;
+    
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            int sum = 0;
+            int multiply = 1;
+            decimal divide = 0;
+            string input;
+    
+            while (true)
+            {
+                Console.WriteLine("Insira um número ou digite 'ok' para sair: ");
+                input = Console.ReadLine();
+    
+                if (input.ToLower() == "ok")
+                {
+                    break;
+                }
+    
+                int number;
+                if (int.TryParse(input, out number) && number != 0)
+                {
+                    sum += number;
+                    multiply *= number;
+                    divide = (decimal)multiply / sum;
+                }
+                else
+                {
+                    if (number == 0)
+                    {
+                        Console.WriteLine("Uma divisão por zero não possui um valor numérico válido.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Valor Inválido, Por gentileza insira um número ou digite 'ok'. ");
+                    }
+                }
+            }
+    
+            Console.WriteLine("A soma dos valores é: " + sum);
+            Console.WriteLine("A multiplicação dos valores é: " + multiply);
+            Console.WriteLine("A divisão do total de soma por total de multiplicação é: " + divide);
+        }
+    }
+        </code></pre>
+    </div>
+</body>
+
+</html>
