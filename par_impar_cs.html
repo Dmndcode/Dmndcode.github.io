@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Explicações do Exercício em Tópicos Modernos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .box {
+            background-color: #1c262b;
+            border: 1px solid #ccc;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #ff9100;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exercício: Contagem de Números Pares e Ímpares</h1>
+    <div>
+        <p>
+            Escreva um programa que conte e exiba a quantidade de números pares e ímpares no intervalo de 1 a 100.
+        </p>
+    </div>
+
+    <h2>Variáveis</h2>
+    <ul>
+        <li>A variável <code>par</code> armazena a quantidade de números pares.</li>
+        <li>A variável <code>impar</code> armazena a quantidade de números ímpares.</li>
+        <li>A variável <code>numero</code> é usada para iterar de 1 a 100.</li>
+    </ul>
+
+    <h2>Loop (while)</h2>
+    <ul>
+        <li>O programa utiliza um loop <code>while</code> para iterar de 1 a 100.</li>
+        <li>Enquanto o valor da variável <code>numero</code> for menor ou igual a 100, o loop continuará.</li>
+    </ul>
+
+    <h2>Condição IF</h2>
+    <ul>
+        <li>Dentro do loop, o programa verifica se o número é divisível por 2 (par).</li>
+        <li>Se a condição for verdadeira, a variável <code>par</code> é incrementada e o número é exibido como "Número
+            par: [numero]".</li>
+        <li>Se a condição for falsa, a variável <code>impar</code> é incrementada e o número é exibido como "Número
+            ímpar: [numero]".</li>
+    </ul>
+
+    <h2>Saída de Dados (Console.WriteLine())</h2>
+    <ul>
+        <li>Após o loop, o programa exibe a quantidade de números pares e ímpares.</li>
+    </ul>
+    <div class="box">
+        <pre><code>
+    using System;
+
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            int par = 0;
+            int impar = 0;
+            int numero = 1;
+
+            while (numero <= 100)
+            {
+                if (numero % 2 == 0)
+                {
+                    par++;
+                    Console.WriteLine("Número par: " + numero);
+                }
+                else
+                {
+                    impar++;
+                    Console.WriteLine("Número ímpar: " + numero);
+                }
+                numero++;
+            }
+
+            Console.WriteLine("A contagem de números pares entre 1 e 100 é: " + par);
+            Console.WriteLine("A contagem de números ímpares entre 1 e 100 é: " + impar);
+        }
+    }
+        </code></pre>
+    </div>
+</body>
+
+</html>
