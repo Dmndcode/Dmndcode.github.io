@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Explicação do Jogo de Adivinhação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .box {
+            background-color: #1c262b;
+            border: 1px solid #ccc;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #ff9100;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Jogo de Adivinhação</h1>
+    <div>
+        <p>
+            Este jogo é um programa simples em C# que permite ao jogador adivinhar um número secreto entre 1 e 7. O
+            jogador tem um número limitado de tentativas para acertar o número. Se o jogador adivinhar corretamente, ele
+            ganha o jogo; caso contrário, perde.
+        </p>
+    </div>
+
+    <h2>Variáveis</h2>
+    <ul>
+        <li>A variável <code>numSecreto</code> armazena o número secreto gerado aleatoriamente.</li>
+        <li>A variável <code>tentativas</code> armazena o número de tentativas disponíveis para o jogador.</li>
+        <li>A variável <code>palpite</code> armazena a entrada do jogador, ou seja, o número que ele está adivinhando.
+        </li>
+    </ul>
+
+    <h2>Geração de Número Aleatório (Random)</h2>
+    <ul>
+        <li>O programa utiliza a classe <code>Random</code> para gerar um número aleatório entre 1 e 7, que é o número
+            secreto a ser adivinhado.</li>
+        <li>Isso é feito através da criação de uma instância da classe <code>Random</code> e do uso do método
+            <code>Next()</code> para gerar um número aleatório.
+        </li>
+    </ul>
+
+    <h2>Loop (while)</h2>
+    <ul>
+        <li>O programa utiliza um loop <code>while</code> para permitir que o jogador faça várias tentativas.</li>
+        <li>O loop continuará executando enquanto o número de <code>tentativas</code> for maior que 0.</li>
+    </ul>
+
+    <h2>Entrada do Jogador (Console.ReadLine())</h2>
+    <ul>
+        <li>Dentro do loop, o programa solicita ao jogador que digite um número entre 1 e 7.</li>
+        <li>O número digitado pelo jogador é armazenado na variável <code>palpite</code> após ser convertido para um
+            tipo <code>int</code> usando o método <code>int.Parse()</code>.</li>
+    </ul>
+
+    <h2>Condição IF</h2>
+    <ul>
+        <li>Após o jogador fazer um palpite, o programa verifica se o <code>palpite</code> é igual ao
+            <code>numSecreto</code>.
+        </li>
+        <li>Se a condição for verdadeira, ou seja, o jogador acertar o número secreto, o programa exibe a mensagem
+            "Você acertou, Parabéns!" e o jogo é encerrado usando a declaração <code>return</code>.</li>
+        <li>Se a condição for falsa, ou seja, o jogador errar o número secreto, o número de <code>tentativas</code> é
+            decrementado e o programa exibe a mensagem "Você errou! Tentativas restantes: [tentativas]".</li>
+    </ul>
+
+    <h2>Saída de Dados (Console.WriteLine())</h2>
+    <ul>
+        <li>Após o loop, se o número de <code>tentativas</code> chegar a 0, o programa exibe a mensagem "Você perdeu! O
+            número secreto era: [numSecreto]".</li>
+    </ul>
+
+    <div class="box">
+        <pre><code>
+using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Random rnd = new Random();
+        int numSecreto = rnd.Next(1, 7);
+        int tentativas = rnd.Next(2, 4);
+        Console.WriteLine("Número secreto: " + numSecreto); // Apenas para teste
+
+        while (tentativas > 0)
+        {
+            Console.WriteLine("Digite um número entre 1 e 7: ");
+            int palpite = int.Parse(Console.ReadLine());
+
+            if (palpite == numSecreto)
+            {
+                Console.WriteLine("Você acertou, Parabéns!");
+                return;
+            }
+            else
+            {
+                tentativas--;
+                Console.WriteLine("Você errou! Tentativas restantes: " + tentativas);
+            }
+        }
+        Console.WriteLine("Você perdeu! O número secreto era: " + numSecreto);
+    }
+}
+        </code></pre>
+    </div>
+</body>
+
+</html>
