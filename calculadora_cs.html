@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora em C#</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .box {
+            background-color: #1c262b;
+            border: 1px solid #ccc;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #ff9100;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exercício: Calculadora em C#</h1>
+    <div>
+        <p>
+            Escreva um programa em C# que funcione como uma calculadora básica, permitindo ao usuário realizar as
+            operações de adição, multiplicação, subtração e divisão com valores numéricos fornecidos pelo próprio
+            usuário.
+        </p>
+    </div>
+
+    <h2>Variáveis</h2>
+    <ul>
+        <li>A variável <code>opcao</code> armazena a opção selecionada pelo usuário.</li>
+        <li>A variável <code>menu</code> armazena a entrada do usuário para o menu de opções.</li>
+        <li>A variável <code>valores</code> armazena a entrada do usuário para os valores a serem operados.</li>
+        <li>A variável <code>nums</code> é um array que armazena os valores numéricos fornecidos pelo usuário.</li>
+        <li>A variável <code>soma</code> armazena a soma dos valores.</li>
+        <li>A variável <code>multiplica</code> armazena o resultado da multiplicação dos valores.</li>
+        <li>A variável <code>subtrai</code> armazena o resultado da subtração dos valores.</li>
+        <li>A variável <code>divisor</code> armazena o valor pelo qual a soma será dividida.</li>
+        <li>A variável <code>resultado</code> armazena o resultado da divisão.</li>
+    </ul>
+
+    <h2>Estrutura Condicional (IF)</h2>
+    <ul>
+        <li>O programa utiliza uma estrutura condicional <code>if</code> para verificar a opção selecionada pelo
+            usuário.</li>
+        <li>Se a opção for 1, o programa realiza a adição dos valores fornecidos pelo usuário e exibe o resultado.</li>
+        <li>Se a opção for 2, o programa realiza a multiplicação dos valores fornecidos pelo usuário e exibe o
+            resultado.</li>
+        <li>Se a opção for 3, o programa realiza a subtração dos valores fornecidos pelo usuário e exibe o resultado.
+        </li>
+        <li>Se a opção for 4, o programa realiza a soma dos valores fornecidos pelo usuário, solicita o valor pelo qual
+            a soma deve ser dividida, realiza a divisão e exibe o resultado.</li>
+        <li>Se a opção for 5, o programa encerra.</li>
+        <li>Se a opção for inválida, o programa exibe uma mensagem de erro.</li>
+    </ul>
+
+    <h2>Saída de Dados (Console.WriteLine())</h2>
+    <ul>
+        <li>O programa utiliza a função <code>Console.WriteLine()</code> para exibir as mensagens de texto e os
+            resultados das operações.</li>
+    </ul>
+
+    <div class="box">
+        <pre><code>
+using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Selecione: \n1 - Adição\n2 - Multiplicação\n3 - Subtração\n4 - Divisão\n5 - Sair");
+        string menu = Console.ReadLine() ?? string.Empty;
+        int opcao;
+
+        if (int.TryParse(menu, out opcao))
+        {
+            if (opcao == 1)
+            {
+                Console.WriteLine("Digite os valores separados por vírgula:");
+                string valores = Console.ReadLine() ?? string.Empty;
+                string[] nums = valores?.Split(',');
+                int soma = 0;
+                foreach (string num in nums ?? Array.Empty<string>())
+                {
+                    if (int.TryParse(num.Trim(), out int parsedNum))
+                    {
+                        soma += parsedNum;
+                    }
+                }
+                Console.WriteLine("A soma dos valores é: " + soma);
+            }
+            else if (opcao == 2)
+            {
+                Console.WriteLine("Digite os valores separados por vírgula:");
+                string valores = Console.ReadLine() ?? string.Empty;
+                string[] nums = valores?.Split(',');
+                int multiplica = 1;
+                foreach (string num in nums ?? Array.Empty<string>())
+                {
+                    if (int.TryParse(num.Trim(), out int parsedNum))
+                    {
+                        multiplica *= parsedNum;
+                    }
+                }
+                Console.WriteLine("O resultado da multiplicação é: " + multiplica);
+            }
+            else if (opcao == 3)
+            {
+                Console.WriteLine("Digite os valores separados por vírgula:");
+                string valores = Console.ReadLine() ?? string.Empty;
+                string[] nums = valores?.Split(',');
+                int subtrai = 0;
+                bool primeiroValor = true;
+
+                foreach (string num in nums ?? Array.Empty<string>())
+                {
+                    if (int.TryParse(num.Trim(), out int parsedNum))
+                    {
+                        if (primeiroValor)
+                        {
+                            subtrai = parsedNum;
+                            primeiroValor = false;
+                        }
+                        else
+                        {
+                            subtrai -= parsedNum;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Valor inválido: " + num);
+                    }
+                }
+
+                if (!primeiroValor)
+                {
+                    Console.WriteLine("O resultado da subtração é: " + subtrai);
+                }
+                else
+                {
+                    Console.WriteLine("Nenhum valor válido foi fornecido para a subtração.");
+                }
+            }
+            else if (opcao == 4)
+            {
+                Console.WriteLine("Digite os valores separados por vírgula:");
+                string valores = Console.ReadLine() ?? string.Empty;
+                string[] nums = valores?.Split(',');
+                int soma = 0;
+                bool primeiroValor = true;
+
+                foreach (string num in nums ?? Array.Empty<string>())
+                {
+                    if (int.TryParse(num.Trim(), out int parsedNum))
+                    {
+                        if (primeiroValor)
+                        {
+                            soma = parsedNum;
+                            primeiroValor = false;
+                        }
+                        else
+                        {
+                            soma += parsedNum;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Valor inválido: " + num);
+                    }
+                }
+
+                if (!primeiroValor)
+                {
+                    Console.WriteLine("Digite o divisor para a soma:");
+                    string divisorInput = Console.ReadLine() ?? string.Empty;
+                    if (int.TryParse(divisorInput.Trim(), out int divisor) && divisor != 0)
+                    {
+                        double resultado = (double)soma / divisor;
+                        Console.WriteLine("O resultado da divisão é: " + resultado);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Divisor inválido. A divisão não foi realizada.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Nenhum valor válido foi fornecido para a soma.");
+                }
+            }
+            else if (opcao == 5)
+            {
+                Console.WriteLine("O programa foi encerrado.");
+            }
+            else
+            {
+                Console.WriteLine("Opção inválida.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Opção inválida. Certifique-se de digitar um número.");
+        }
+    }
+}
+        </code></pre>
+    </div>
+</body>
+
+</html>
