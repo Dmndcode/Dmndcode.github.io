@@ -2,12 +2,6 @@
 
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>Rafael Guindani</title>
-</head>
-
 <body>
     <h1>Exercicios em C#</h1>
     <ul>
