@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Menu</title>
+    <title>Rafael Guindani</title>
 </head>
 
 <body>
