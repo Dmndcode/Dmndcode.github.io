@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Explicações do Exercício em Tópicos Modernos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .box {
+            background-color: #1c262b;
+            border: 1px solid #ccc;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #ff9100;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exercício: Encontrar o Maior Número em uma Série</h1>
+    <div>
+        <p>
+            Escreva um programa que solicita ao usuário uma série de números separados por vírgula e encontra o maior
+            número nessa série.
+        </p>
+    </div>
+
+    <h2>Variáveis</h2>
+    <ul>
+        <li>A variável <code>input</code> armazena a entrada do usuário.</li>
+        <li>A variável <code>numbers</code> é um array que armazena os números separados por vírgula.</li>
+        <li>A variável <code>max</code> armazena o maior número encontrado.</li>
+    </ul>
+
+    <h2>Entrada de Dados (Console.ReadLine())</h2>
+    <ul>
+        <li>O programa solicita ao usuário que insira uma série de números separados por vírgula.</li>
+        <li>A entrada do usuário é armazenada na variável <code>input</code>.</li>
+    </ul>
+
+    <h2>Manipulação de Strings e Array</h2>
+    <ul>
+        <li>O programa utiliza o método <code>Split()</code> para separar a string de entrada em um array de números.
+        </li>
+        <li>O método <code>Trim()</code> é utilizado para remover quaisquer espaços em branco em torno de cada número.
+        </li>
+        <li>Se a entrada do usuário for nula, é atribuída uma string vazia à variável <code>input</code>.</li>
+        <li>Se o array de números for nulo, é atribuído um array vazio à variável <code>numbers</code>.</li>
+    </ul>
+
+    <h2>Loop (foreach)</h2>
+    <ul>
+        <li>O programa utiliza um loop <code>foreach</code> para iterar sobre cada número no array <code>numbers</code>.
+        </li>
+        <li>Para cada número, o programa verifica se é possível convertê-lo para um inteiro usando o método
+            <code>TryParse()</code>.</li>
+        <li>Se a conversão for bem-sucedida, o programa compara o número atual com o valor máximo encontrado até o
+            momento e atualiza a variável <code>max</code> se necessário.</li>
+        <li>Se a conversão falhar, o programa exibe uma mensagem de entrada inválida e interrompe o loop usando o
+            comando <code>break</code>.</li>
+    </ul>
+
+    <h2>Saída de Dados (Console.WriteLine())</h2>
+    <ul>
+        <li>Após o loop, o programa exibe o maior número encontrado usando a variável <code>max</code>.</li>
+    </ul>
+
+    <h2>Código em C#</h2>
+    <div class="box">
+        <pre><code>
+using System;
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Escreva uma série de números separados por vírgula");
+        string input = Console.ReadLine() ?? string.Empty;
+        String[]? numbers = input?.Split(',');
+        int max = int.MinValue;
+
+        foreach (String number in numbers ?? Array.Empty<string>())
+        {
+            if (int.TryParse(number?.Trim(), out int currentNmbr))
+            {
+                if (currentNmbr > max) { max = currentNmbr; }
+            }
+            else { Console.WriteLine("Entrada inválida: " + number); break; }
+        }
+
+        Console.WriteLine("O maior número da série é: " + max);
+    }
+}
+</code></pre>
+    </div>
+</body>
+
+</html>
