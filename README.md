@@ -1,7 +1,5 @@
 # Dmndcode.github.io
 
-<!DOCTYPE html>
-<html>
 <body>
     <h1>Exercicios em C#</h1>
     <ul>
@@ -12,6 +10,8 @@
         <li><a href="https://dmndcode.github.io/par_impar_cs.html">Par ou Ímpar</a></li>
         <li><a href="https://dmndcode.github.io/soma_cs.html">Soma</a></li>
     </ul>
+        <h1>Exercicios em JS</h1>
+    <ul>
+        <li><a href="https://dmndcode.github.io/calculadora_js/calculadora.html">Calculadora</a></li>
+    </ul>
 </body>
-
-</html>
