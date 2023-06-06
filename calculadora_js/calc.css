@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes ledAnimation {
+    0% {
+        color: rgb(255, 55, 55);
+    }
+
+    33% {
+        color: green;
+    }
+
+    66% {
+        color: rgb(11, 88, 255);
+    }
+
+    100% {
+        color: red;
+    }
+}
+
+
+@keyframes discoAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.fundo {
+    background-image: linear-gradient(60deg, blue, salmon);
+    height: 100vh;
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.calculadora {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.botao {
+    backdrop-filter: blur(10px);
+    background-image: linear-gradient(-45deg, rgb(24, 66, 204), rgba(108, 0, 250, 0.61));
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    cursor: pointer;
+    border: none;
+    color: blanchedalmond;
+    border-radius: 1px;
+    margin: 1px;
+    transition: transform 0.3s ease;
+}
+
+.botao:hover {
+    background-image: linear-gradient(-45deg, rgb(24, 66, 204), rgb(108, 0, 250));
+    border-radius: 5px;
+    animation: ledAnimation 2s linear infinite;
+    text-shadow: 15px;
+    transform: perspective(100px) rotateX(0deg) rotateY(0deg) scale(1.1);
+    border-color: #ffffff;
+}
+
+.botao_igual {
+    backdrop-filter: blur(10px);
+    background-image: linear-gradient(-45deg, rgb(24, 66, 204), rgba(108, 0, 250, 0.61));
+    width: 50px;
+    height: 108px;
+    font-size: 25px;
+    cursor: pointer;
+    border: none;
+    color: blanchedalmond;
+    border-radius: 1px;
+    margin: 1px;
+    transition: transform 0.3s ease;
+}
+
+.botao_igual:hover {
+    background-image: linear-gradient(-45deg, rgb(24, 66, 204), rgb(108, 0, 250));
+    border-radius: 5px;
+    animation: ledAnimation 2s linear infinite;
+    text-shadow: 15px;
+    transform: perspective(100px) rotateX(0deg) rotateY(0deg) scale(1.1);
+    border-color: #ffffff;
+}
+
+.botao_zero {
+    backdrop-filter: blur(10px);
+    background-image: linear-gradient(-45deg, rgb(24, 66, 204), rgba(108, 0, 250, 0.61));
+    width: 103px;
+    height: 50px;
+    font-size: 25px;
+    cursor: pointer;
+    border: none;
+    color: blanchedalmond;
+    border-radius: 1px;
+    margin: 1px;
+    transition: transform 0.3s ease;
+}
+
+.botao_zero:hover {
+    background-image: linear-gradient(-45deg, rgb(24, 66, 204), rgb(108, 0, 250));
+    border-radius: 5px;
+    border-color: #ffffff;
+    text-shadow: 15px;
+    transform: perspective(100px) rotateX(0deg) rotateY(0deg) scale(1.1);
+    animation: ledAnimation 2s linear infinite;
+}
+
+.botao_zero {
+    backdrop-filter: blur(10px);
+    background-image: linear-gradient(-45deg, rgb(24, 66, 204), rgba(108, 0, 250, 0.61));
+    width: 103px;
+    height: 50px;
+    font-size: 25px;
+    cursor: pointer;
+    border: none;
+    color: blanchedalmond;
+    border-radius: 1px;
+    margin: 1px;
+    transition: transform 0.3s ease;
+}
+
+.botao_zero:hover {
+    background-image: linear-gradient(-45deg, rgb(24, 66, 204), rgb(108, 0, 250));
+    border-radius: 5px;
+    border-color: #ffffff;
+    text-shadow: 15px;
+    transform: perspective(100px) rotateX(0deg) rotateY(0deg) scale(1.1);
+    animation: ledAnimation 2s linear infinite;
+}
+
+
+#resultado {
+    backdrop-filter: blur(10px);
+    width: 200px;
+    height: 30px;
+    margin: 5px;
+    background-image: linear-gradient(45deg, rgb(255, 255, 255), rgba(0, 0, 0, 0.9));
+    font-size: 25px;
+    border-radius: 5px;
+    color: aquamarine;
+    text-align: right;
+    padding: 5px;
+}
+
+#resultado:hover {
+    border-radius: 5px;
+    animation: ledAnimation 2s linear infinite;
+    background: linear-gradient(45deg, #ffffff, #0000001f, rgba(0, 0, 0, 0.61), rgb(255, 255, 255));
+    background-size: 400% 400%;
+    animation: discoAnimation 10s linear infinite;
+    filter: brightness(80%);
+    transition: filter 0.3s ease;
+}
