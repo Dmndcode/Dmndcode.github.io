@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>C# Exercício: Encontrando o Menor Peso de Sacas de Café</title>
+    <style>
+        /* Seus estilos CSS aqui */
+    </style>
+</head>
+
+<body>
+    <h1>Exercício: Encontrando o Menor Peso de Sacas de Café</h1>
+    <div>
+        <p>
+            Você é um comerciante de café e recebeu uma entrega de sacas de café de diferentes pesos.
+            Cada saca de café tem um peso inteiro representando seu valor em quilogramas. Você deseja escrever um
+            algoritmo para encontrar a saca de café mais leve entre as entregues.
+        </p>
+    </div>
+
+    <h2>Variáveis</h2>
+    <ul>
+        <li><code>pesos</code>: Um array que armazena os pesos das sacas de café.</li>
+        <li><code>menorPeso</code>: Armazena o menor peso de saca de café encontrado.</li>
+    </ul>
+
+    <h2>Algoritmo</h2>
+    <ul>
+        <li>O algoritmo utiliza um loop <code>for</code> para percorrer o array de pesos das sacas de café.</li>
+        <li>O menor peso é inicializado com o primeiro peso do array.</li>
+        <li>Cada peso de saca é comparado com o valor atual da variável <code>menorPeso</code>. Se o peso atual for menor,
+            a variável é atualizada.</li>
+        <li>Ao final do loop, a variável <code>menorPeso</code> contém o menor peso de saca de café.</li>
+    </ul>
+
+    <h2>Exibição de Resultado</h2>
+    <ul>
+        <li>O resultado do menor peso é exibido no console ou em algum meio de saída desejado.</li>
+    </ul>
+
+    <div class="box">
+        <pre><code>
+    using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MenorElemento
+{
+    class Encontrar
+    {
+        static void Main(string[] args)
+        {
+            // Exercício: Encontrando o Menor Peso de Sacas de Café
+
+            // Você é um comerciante de café e recebeu uma entrega de sacas de café de diferentes pesos.
+            // Cada saca de café tem um peso inteiro representando seu valor em quilogramas.
+            int[] pesos = { 50, 42, 55, 38, 60 };
+            // Você deseja escrever um algoritmo para encontrar a saca de café mais leve entre as entregues.
+
+            int menorPeso = EncontrarMenorPeso(pesos);
+            Console.WriteLine($"O peso da saca de café mais leve na entrega é: {menorPeso} kg");
+        }
+        static int EncontrarMenorPeso(int[] pesos)
+        {
+            int menorPeso = pesos[0];
+            for (int i = 1; i < pesos.Length; i++) 
+            {
+                if (pesos[i] < menorPeso)
+                {
+                    menorPeso = pesos[i];
+                }
+            }
+            return menorPeso;
+        }
+    }
+}
+
+        </code></pre>
+    </div>
+</body>
+
+</html>
