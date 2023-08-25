@@ -5,7 +5,33 @@
     <meta charset="UTF-8">
     <title>C# Exercício: Encontrando o Menor Peso de Sacas de Café</title>
     <style>
-        /* Seus estilos CSS aqui */
+         body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .box {
+            background-color: #1c262b;
+            border: 1px solid #ccc;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #ff9100;
+        }
     </style>
 </head>
 
