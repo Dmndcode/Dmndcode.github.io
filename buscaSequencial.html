@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>C# Exercício de Busca Sequencial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .box {
+            background-color: #1c262b;
+            border: 1px solid #ccc;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #ff9100;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Título Principal -->
+    <h1>Exercício de Busca Sequencial em C#</h1>
+
+    <!-- Introdução -->
+    <div>
+        <p>
+            Neste exercício, vamos explorar o conceito de busca sequencial em C#. A busca sequencial é um algoritmo simples
+            usado para encontrar um elemento específico em uma coleção de dados, como um vetor ou uma lista.
+            Neste caso, usaremos uma lista de tipos de café como exemplo.
+        </p>
+    </div>
+
+    <!-- Variáveis -->
+    <h2>Variáveis Utilizadas</h2>
+    <ul>
+        <li><code>tiposDeCafes</code>: Uma lista de objetos representando diferentes tipos de café.</li>
+        <li><code>nomeBuscado</code>: O termo de busca inserido pelo usuário.</li>
+        <li><code>encontrado</code>: Uma variável booleana para controlar se o tipo de café foi encontrado.</li>
+    </ul>
+
+    <!-- Funcionalidade de Busca -->
+    <h2>Funcionalidade de Busca Sequencial</h2>
+    <ul>
+        <li>A função <code>BuscaCafe</code> verifica se o nome ou a descrição de um café contém o termo de busca, após
+            remover acentos e tornar tudo em letras minúsculas.</li>
+        <li>O resultado é usado para determinar se um tipo de café corresponde ao termo de busca.</li>
+    </ul>
+
+    <!-- Processo Principal -->
+    <h2>Processo Principal</h2>
+    <ol>
+        <li>Uma lista de objetos de tipos de café é criada, contendo diferentes tipos de café com nomes e descrições.</li>
+        <li>O usuário é solicitado a inserir um termo de busca (por exemplo, "arabica").</li>
+        <li>Para cada tipo de café na lista:</li>
+        <ul>
+            <li>A função de busca é chamada para verificar se o termo de busca corresponde ao nome ou descrição do café.</li>
+            <li>Se uma correspondência for encontrada, o nome do café e sua descrição são exibidos.</li>
+            <li>A variável <code>encontrado</code> é definida como verdadeira.</li>
+        </ul>
+        <li>Se nenhum tipo de café corresponder ao termo de busca, uma mensagem "Tipo de café não encontrado" é exibida.</li>
+    </ol>
+
+    <!-- Resultado -->
+    <h2>Resultado</h2>
+    <ul>
+        <li>Se um tipo de café correspondente for encontrado, suas informações serão exibidas na saída.</li>
+        <li>Se nenhum tipo de café corresponder, uma mensagem indicando que o tipo de café não foi encontrado será exibida.</li>
+    </ul>
+
+    <!-- Código Completo -->
+    <h2>Código Completo</h2>
+    <div class="box">
+        <pre><code>
+            using buscaSequencial.Models;
+using buscaSequencial.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace buscaSequencial
+{
+    class Program
+    {
+        static bool BuscaCafe(TipoDeCafe cafe, string termoBusca)
+        {
+            string nomeSemAcentos = StringHelper.RemoverAcentos(cafe.Nome.ToLower());
+            string termoSemAcentos = StringHelper.RemoverAcentos(termoBusca.ToLower());
+
+            return nomeSemAcentos.Contains(termoSemAcentos);
+        }
+
+        static void Main(string[] args) 
+        {
+            List<TipoDeCafe> tiposDeCafes = new List<TipoDeCafe> {
+                new TipoDeCafe { Nome = "Café Arábica", Descricao = "Um café de sabor suave e aromático, cultivado em regiões de alta altitude." },
+                new TipoDeCafe { Nome = "Café Robusta", Descricao = "Conhecido por sua robustez e sabor intenso, frequentemente usado em blends de espresso." },
+                new TipoDeCafe { Nome = "Café Kona", Descricao = "Originário do Havaí, este café possui notas frutadas e é cultivado em solos vulcânicos." },
+                new TipoDeCafe { Nome = "Café Geisha", Descricao = "Uma variedade de café especial conhecida por seus sabores florais e complexidade." }
+            };
+
+            Console.Write("Insira o nome de um tipo de café: ");
+            string nomeBuscado = Console.ReadLine().Trim().ToLower();
+
+            bool encontrado = false;
+            foreach (var cafe in tiposDeCafes)
+            {
+                if (BuscaCafe(cafe, nomeBuscado))
+                {
+                    Console.WriteLine($"Tipo de Café: {cafe.Nome}");
+                    Console.WriteLine($"Descrição: {cafe.Descricao}");
+                    encontrado = true;
+                }
+            }
+            if (!encontrado)
+            {
+                Console.WriteLine("Tipo de café não encontrado.");
+            }
+        }
+    }
+}
+
+        </code></pre>
+    </div>
+</body>
+
+</html>
