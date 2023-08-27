@@ -12,7 +12,6 @@
         <li><a href="https://dmndcode.github.io/menorElemento.html">Menor Elemento</a></li>
         <li><a href="https://dmndcode.github.io/buscaSequencial.html">Busca Sequencial</a></li>
         <li><a href="https://dmndcode.github.io/buscaBinaria.html">Busca Binaria</a></li>
-        
     </ul>
         <h1>Exercicios em JS</h1>
     <ul>
